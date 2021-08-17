@@ -15,5 +15,6 @@ sed -i 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
 apt update
 apt -y install xrdp 
 apt -y install raspberrypi-ui-mods lxterminal
+apt -y install build-essential git cmake
 
 echo 'reboot is recommended'
