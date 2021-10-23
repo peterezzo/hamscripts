@@ -1,0 +1,26 @@
+--- /lib/udev/hwclock-set	2021-10-23 01:50:07.774249316 +0000
++++ hwclock-set	2021-10-23 01:51:02.104477694 +0000
+@@ -4,10 +4,6 @@
+ 
+ dev=$1
+ 
+-if [ -e /run/systemd/system ] ; then
+-    exit 0
+-fi
+-
+ if [ -e /run/udev/hwclock-set ]; then
+     exit 0
+ fi
+@@ -26,10 +22,10 @@
+ fi
+ 
+ if [ yes = "$BADYEAR" ] ; then
+-    /sbin/hwclock --rtc=$dev --systz --badyear
++    # /sbin/hwclock --rtc=$dev --systz --badyear
+     /sbin/hwclock --rtc=$dev --hctosys --badyear
+ else
+-    /sbin/hwclock --rtc=$dev --systz
++    # /sbin/hwclock --rtc=$dev --systz
+     /sbin/hwclock --rtc=$dev --hctosys
+ fi
+ 

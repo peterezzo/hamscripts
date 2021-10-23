@@ -7,6 +7,7 @@ if [ $(id -u) -ne 0 ]; then
     exit 1
 fi
 
+# enable serial port, disable serial console
 raspi-config
 
 sed -i 's/#deb-src/deb-src/' /etc/apt/sources.list
@@ -16,5 +17,7 @@ apt update
 apt -y install xrdp 
 apt -y install raspberrypi-ui-mods lxterminal
 apt -y install build-essential git cmake
+
+# usermod -a -G gpio pi
 
 echo 'reboot is recommended'
