@@ -1,0 +1,9 @@
+[Unit]
+Description=SDR rtl_433 monitoring
+
+[Service]
+ExecStart=/usr/local/bin/rtl_433 -F json:/var/log/sdr-433.json -Y autolevel
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
